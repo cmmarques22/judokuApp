@@ -1,10 +1,30 @@
 package sudoku;
 
-public class SudokuApp  extends Application{
-    private IuserinterfaceContract.View uiImpl;
+import javafx.*;
+import javafx.application.Application;
+import javafx.scene.Parent;
+import javafx.stage.Stage;
+import sudoku.userinterface.IUserInterfaceContract;
+import sudoku.userinterface.UserInterfaceImpl;
+
+import java.io.IOException;
+
+public class SudokuApp  extends Application {
+    private IUserInterfaceContract.View uiImpl;
+
+    @Override
+    public void start (Stage primaryStage) throws Exception {
+        uiImpl = new UserInterfaceImpl(primaryStage)
+                try {
+                    SudokuBuildLogic.build(uiImpl);
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                    throw e;
+                }
+    }
 
     public static void main(String[] args) {
-        System.out.println("Hello Sudoku!");
-        System.out.println("Hello git4");
+        launch(args);
     }
 }
