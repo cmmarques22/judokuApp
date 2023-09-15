@@ -43,7 +43,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
         drawTextFields(root);
         drawGridLines(root);
         stage.show();
-
+aasd
 }
 
     private void drawGridLines(Group root) {
