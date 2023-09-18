@@ -53,7 +53,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
         int index = 0;
         while  (index < 8) {
             int thickness;
-            if (index == 2 || 5 ) {
+            if (index == 2 || index == 5 ) {
                 thickness = 3;
             } else {
                 thickness = 2;
@@ -66,9 +66,8 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
         }
     }
 
-    private Rectangle getline(double x , double y, double height, double width) {
+    private Rectangle getlineine(double x , double y, double height, double width) {
 
-        javafx.scene.shape.Rectangle
     }
 
     private void drawTextFields(Group root) {
