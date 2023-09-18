@@ -63,7 +63,6 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
                     BOARD_PADDING,
                     BOARD_X_AND_Y,
                     thickness);
-
         }
     }
 
