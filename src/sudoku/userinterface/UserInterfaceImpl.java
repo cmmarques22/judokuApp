@@ -66,7 +66,21 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
         }
     }
 
-    private Rectangle getlineine(double x , double y, double height, double width) {
+    private Rectangle getline(double x,
+                                 double y,
+                                 double height,
+                                 double width) {
+
+        Rectangle line = new Rectangle();
+
+        line.setX(x);
+        line.setY(y);
+
+        line.setHeight(height);
+        line.setWidth(width);
+
+        line.setFill(Color.BLACK);
+        return line;
 
     }
 
@@ -79,7 +93,11 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
     private void drawTitle(Group root) {
     }
 
-    private void drawBackgroudnd(Group root) {
+    private void drawBackgroud(Group root) {
+
+        Scene scene = new Scene(root, WINDOW_X, WINDOW_Y);
+        scene.setFill(WINDOW_BACKGROUND_COLOR);
+        stage.setScene(scene);
 
     }
 
