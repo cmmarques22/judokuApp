@@ -2,6 +2,7 @@ package sudoku.userinterface;
 
 import javafx.event.EventHandler;
 import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -14,6 +15,7 @@ import java.util.HashMap;
 
 public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHandler<KeyEvent> {
 
+
     private final Stage stage;
     private final Group root;
 
@@ -22,7 +24,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
     private IUserInterfaceContract.EventListener listener;
 
     private static final double WINDOW_Y = 732;
-    private static final double WINDOW_x = 668;
+    private static final double WINDOW_X = 668;
     private static final double BOARD_PADDING = 50;
     private static final double BOARD_X_AND_Y = 576;
 
@@ -39,7 +41,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
     }
 
     private void initializeUserInterface() {
-        drawBackgroudnd(root);
+        drawBackground(root);
         drawTitle(root);
         drawSudokuBoard(root);
         drawTextFields(root);
@@ -62,7 +64,23 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
                     xAndY + 64 * index,
                     BOARD_PADDING,
                     BOARD_X_AND_Y,
-                    thickness);
+                    thickness
+            );
+
+            Rectangle horizontalLine = getline(
+                    BOARD_PADDING,
+                    xAndY + 64 * index,
+                    thickness,
+                    BOARD_X_AND_Y
+            );
+
+            root.getChildren().addAll(
+                    verticalLine,
+                    horizontalLine
+            );
+
+            index++;
+
         }
     }
 
@@ -93,7 +111,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
     private void drawTitle(Group root) {
     }
 
-    private void drawBackgroud(Group root) {
+    private void drawBackground(Group root) {
 
         Scene scene = new Scene(root, WINDOW_X, WINDOW_Y);
         scene.setFill(WINDOW_BACKGROUND_COLOR);
