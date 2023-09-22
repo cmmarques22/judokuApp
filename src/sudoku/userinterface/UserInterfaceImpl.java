@@ -103,6 +103,8 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
     }
 
     private void drawTextFields(Group root) {
+        drawGridLines();
+
     }
 
     private void drawSudokuBoard(Group root) {
