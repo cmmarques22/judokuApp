@@ -104,7 +104,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
 
     private void drawTextFields(Group root) {
         //where to start drawing the numbers
-        final int xOrigin = 50;
+        final int xOrigin = 51;
         final int yOrigin = 50;
         //how much to move the x or y value after each loop
         final int xAndYDelta = 64;
