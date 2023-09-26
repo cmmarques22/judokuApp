@@ -1,11 +1,13 @@
 package sudoku.userinterface;
 
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import sudoku.problemdomain.Coordinates;
 import sudoku.problemdomain.SudokuGame;
@@ -108,6 +110,30 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
         final int yOrigin = 50;
         //how much to move the x or y value after each loop
         final int xAndYDelta = 64;
+
+        for ( int xIndex = 0; xIndex < 9; xIndex++) {
+            for (int yIndex = 0; yIndex < 9; yIndex++) {
+                int x = xOrigin + xIndex * xAndYDelta;
+                int y = yOrigin + yIndex * xAndYDelta;
+
+                SudokuTextField tile = new SudokuTextField(xIndex, yIndex);
+
+                styleSudokuTile(tile, x, y);
+                
+            }    
+        }
+
+
+    }
+
+    private void styleSudokuTile(SudokuTextField tile, int x, int y) {
+        Font numberFont = new Font(32);
+
+        tile.setFont(numberFont);
+        tile.setAlignment(Pos.CENTER);
+
+        tile.setLayoutX(x);
+        tile.setLayoutY(y);
 
     }
 
