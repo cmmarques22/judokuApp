@@ -8,6 +8,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sudoku.problemdomain.Coordinates;
 import sudoku.problemdomain.SudokuGame;
@@ -119,6 +120,13 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
                 SudokuTextField tile = new SudokuTextField(xIndex, yIndex);
 
                 styleSudokuTile(tile, x, y);
+
+                tile.setOnKeyPressed(this);
+
+                textFieldCoordinates.put(new Coordinates(xIndex,yIndex), tile);
+
+                root.getChildren().add(tile);
+
                 
             }    
         }
@@ -138,9 +146,26 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
     }
 
     private void drawSudokuBoard(Group root) {
+    Rectangle boardBackground = new Rectangle();
+    boardBackground.setX(BOARD_PADDING);
+    boardBackground.setY(BOARD_PADDING);
+
+    boardBackground.setWidth(BOARD_X_AND_Y);
+    boardBackground.setHeight(BOARD_X_AND_Y);
+
+    boardBackground.setFill(BOARD_BACKGROUND_COLOR);
+
+    root.getChildren().addAll(boardBackground);
+
+
     }
 
     private void drawTitle(Group root) {
+        Text title = new Text(235,690, SUDOKU);
+
+        title.setFill(Color.WHITE);
+        Font titleFont = new Font(43);
+
     }
 
     private void drawBackground(Group root) {
