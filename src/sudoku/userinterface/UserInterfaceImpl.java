@@ -166,6 +166,8 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
         title.setFill(Color.WHITE);
         Font titleFont = new Font(43);
 
+        root.getChildren().addAll(title);
+
     }
 
     private void drawBackground(Group root) {
@@ -183,6 +185,11 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
 
     @Override
     public void updateSquare(int x, int y, int input) {
+        SudokuTextField tile = textFieldCoordinates.get(new Coordinates(x,y));
+
+        String value = Integer.toString(
+                input
+        );
 
     }
 
