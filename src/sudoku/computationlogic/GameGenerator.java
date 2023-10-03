@@ -14,7 +14,7 @@ public class GameGenerator {
     }
 
     private static int[][] unsolveGame(int[][] solvedGame) {
-
+        return null;
     }
 
     private static int[][] getSolvedGame() {
