@@ -262,5 +262,11 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
     }
 
     private void handleInput(int value, Object source) {
+
+        listener.onSudokuInput(
+                ((SudokuTextField) source).getX(),
+                ((SudokuTextField) source).getY(),
+                value
+        );
     }
 }
