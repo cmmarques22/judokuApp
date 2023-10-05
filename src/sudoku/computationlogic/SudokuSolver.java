@@ -8,7 +8,7 @@ import static sudoku.problemdomain.SudokuGame.GRID_BOUNDARY;
 
     public static boolean puzzleIsSolvable(int[][] puzzle) {
         Coordinates[] emptyCells = typeWriterEnumerate(puzzle);
-
+          int
         int index = 0;
 
         int input = 1;
