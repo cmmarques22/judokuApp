@@ -27,7 +27,7 @@ public class GameLogic {
         return GameState.COMPLETE;
     }
 
-    private static boolean sudokuIsInvalid(int[][] grid) {
+    public static boolean sudokuIsInvalid(int[][] grid) {
         if (rowsAreInvalid(grid)) {
             return true;
         }
@@ -41,34 +41,61 @@ public class GameLogic {
         }
     }
 
+    private static boolean rowsAreInvalid(int[][] grid) {
+        for (int yIndex = 0; yIndex < GRID_BOUNDARY; yIndex++) {
+            List<Integer> row = new ArrayList<>();
+            for (int xIndex = 0; xIndex < GRID_BOUNDARY; xIndex++) {
+                row.add(grid[xIndex][yIndex]);
+            }
+            if(collectionHasRepeats(row)) {return true;}
+        }
+        return false;
+    }
+
+    private static boolean columnsAreInvalid(int[][] grid) {
+        for (int xIndex = 0; xIndex < GRID_BOUNDARY; xIndex++) {
+            List<Integer> row = new ArrayList<>();
+            for (int yIndex = 0; yIndex < GRID_BOUNDARY; yIndex++) {
+                row.add(grid[xIndex][yIndex]);
+            }
+            if(collectionHasRepeats(row)) {return true;}
+        }
+         return false;
+    }
+
     private static boolean squaresAreInvalid(int[][] grid) {
-        if (rowOfSquaresISInvalid(Rows.TOP, grid)) {
+        if (rowOfSquaresIsInvalid(Rows.TOP, grid)) {
             return true;
         }
-        if (rowOfSquaresISInvalid(Rows.MIDDLE, grid)) {
+        if (rowOfSquaresIsInvalid(Rows.MIDDLE, grid)) {
             return true;
         }
-        if (rowOfSquaresISInvalid(Rows.BOTTOM, grid)) {
+        if (rowOfSquaresIsInvalid(Rows.BOTTOM, grid)) {
             return true;
         } else {
             return false;
         }
     }
 
-    private static boolean rowOfSquaresISInvalid(Rows value, int[][] grid) {
+    private static boolean rowOfSquaresIsInvalid(Rows value, int[][] grid) {
         switch (value) {
             case TOP:
-                if (squareIsInvalid(0, 0, grid)) {
-                    return true;
-                }
-                if (squareIsInvalid(0, 3, grid)) {
-                    return true;
-                }
-                if (squareIsInvalid(0, 6, grid)) {
-                    return true;
-                } else {
-                    return false;
-                }
+                if (squareIsInvalid(0, 0, grid)) {return true;}
+                if (squareIsInvalid(0, 3, grid)) {return true;}
+                if (squareIsInvalid(0, 6, grid)) {return true;}
+                return false;
+            case MIDDLE:
+                if (squareIsInvalid(3, 0, grid)) {return true;}
+                if (squareIsInvalid(3, 3, grid)) {return true;}
+                if (squareIsInvalid(3, 6, grid)) {return true;}
+                return false;
+            case BOTTOM:
+                if (squareIsInvalid(6, 0, grid)) {return true;}
+                if (squareIsInvalid(6, 3, grid)) {return true;}
+                if (squareIsInvalid(6, 6, grid)) {return true;}
+                return false;
+            default:
+                return false;
         }
     }
 
@@ -96,7 +123,7 @@ public class GameLogic {
         }
     }
 
-    private static boolean collectionHasRepeats(List<Integer> collection) {
+    public static boolean collectionHasRepeats(List<Integer> collection) {
         for (int index = 1; index < GRID_BOUNDARY; index++) {
             if (Collections.frequency(collection, index) > 1) {
                 return true;
