@@ -30,7 +30,7 @@ public class GameGenerator {
                 int xCoordinate = random.nextInt(GRID_BOUNDARY);
                 int yCoordinate = random.nextInt(GRID_BOUNDARY);
 
-                if (solvableArray[xCoordinate][yCoordinate]) != 0 {
+                if (solvableArray[xCoordinate][yCoordinate] != 0) {
                     solvableArray[xCoordinate][yCoordinate] = 0;
                     index++;
                 }
@@ -43,7 +43,7 @@ public class GameGenerator {
         }
         return solvableArray;
 
-        return new int[0][];
+        //return new int[0][];
     }
 
     private static int[][] getSolvedGame() {

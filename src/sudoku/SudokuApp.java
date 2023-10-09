@@ -1,9 +1,8 @@
 package sudoku;
 
-import javafx.*;
 import javafx.application.Application;
-import javafx.scene.Parent;
 import javafx.stage.Stage;
+import sudoku.buildlogic.SudokuBuildLogic;
 import sudoku.userinterface.IUserInterfaceContract;
 import sudoku.userinterface.UserInterfaceImpl;
 
@@ -14,7 +13,7 @@ public class SudokuApp  extends Application {
 
     @Override
     public void start (Stage primaryStage) throws Exception {
-        uiImpl = new UserInterfaceImpl(primaryStage)
+        uiImpl = new UserInterfaceImpl(primaryStage);
                 try {
                     SudokuBuildLogic.build(uiImpl);
                 }
