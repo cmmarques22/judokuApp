@@ -31,16 +31,16 @@ public class LocalStorageImpl implements IStorage {
 
     @Override
     public SudokuGame getGameData() throws IOException {
-        FileInputStream fileInputStream = new FileInputStream(GAME_DATA);
-        ObjectInputStream objectInputStream  = new ObjectInputStream(fileInputStream);
+
+        FileInputStream fileInputStream =
+                new FileInputStream(GAME_DATA);
+        ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
         try {
             SudokuGame gameState = (SudokuGame) objectInputStream.readObject();
             objectInputStream.close();
             return gameState;
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            throw new IOException("File not found");
+            throw new IOException("File Not Found");
         }
-
     }
 }
