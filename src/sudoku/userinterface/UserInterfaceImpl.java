@@ -244,7 +244,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
 
     }
 
-    /*@Override
+    @Override
     public void handle(KeyEvent event) {
 
         if (event.getEventType() == KeyEvent.KEY_PRESSED) {
@@ -260,9 +260,9 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
         }
         event.consume();
 
-    }*/
+    }
 
-
+        /*
     @Override
     public void handle(KeyEvent event) {
         if (event.getEventType() == KeyEvent.KEY_PRESSED) {
@@ -289,6 +289,9 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
         event.consume();
     }
 
+
+         */
+
     private void handleInput(int value, Object source) {
         listener.onSudokuInput(
                 ((SudokuTextField) source).getX(),
@@ -296,4 +299,8 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
                 value
         );
     }
+
+
 }
+
+
