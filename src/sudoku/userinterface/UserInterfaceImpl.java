@@ -248,7 +248,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
     public void handle(KeyEvent event) {
 
         if (event.getEventType() == KeyEvent.KEY_PRESSED) {
-
+        // CHECK METHOD AGAIN
             if (event.getText().matches("[0-9]")) {
                 int value = Integer.parseInt(event.getText());
                 handleInput(value, event.getSource());
