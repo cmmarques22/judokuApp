@@ -9,6 +9,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -40,7 +41,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
     private static final Color WINDOW_BACKGROUND_COLOR = Color.rgb(0, 10, 136);
     private static final Color BOARD_BACKGROUND_COLOR = Color.rgb(224, 242, 241);
 
-    private static final String SUDOKU = "Sudoku";
+    private static final String SUDOKU = "SUDOKU";
 
     public UserInterfaceImpl(Stage stage) {
         this.stage = stage;
@@ -113,7 +114,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
 
     private void drawTextFields(Group root) {
         //where to start drawing the numbers
-        final int xOrigin = 51;
+        final int xOrigin = 50;
         final int yOrigin = 50;
         //how much to move the x or y value after each loop
         final int xAndYDelta = 64;
@@ -149,10 +150,16 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
         tile.setLayoutX(x);
         tile.setLayoutY(y);
 
+        tile.setPrefHeight(64);
+        tile.setPrefWidth(64);
+
+        tile.setBackground(Background.EMPTY);
+
     }
 
     private void drawSudokuBoard(Group root) {
     Rectangle boardBackground = new Rectangle();
+
     boardBackground.setX(BOARD_PADDING);
     boardBackground.setY(BOARD_PADDING);
 
@@ -171,6 +178,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
 
         title.setFill(Color.WHITE);
         Font titleFont = new Font(43);
+        title.setFont(titleFont);
 
         root.getChildren().addAll(title);
 
