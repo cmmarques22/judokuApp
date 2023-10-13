@@ -124,7 +124,7 @@ public class GameLogic {
     }
 
     public static boolean collectionHasRepeats(List<Integer> collection) {
-        for (int index = 1; index < GRID_BOUNDARY; index++) {
+        for (int index = 1; index <= GRID_BOUNDARY; index++) {
             if (Collections.frequency(collection, index) > 1) {
                 return true;
             } else {
