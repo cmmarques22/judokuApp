@@ -24,7 +24,7 @@ public class LocalStorageImpl implements IStorage {
 
         } catch (IOException e) {
             throw new IOException("Game data access error");
-        //*
+        //*s
         }
 
     }
