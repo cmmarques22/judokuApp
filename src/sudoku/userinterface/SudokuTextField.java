@@ -4,10 +4,9 @@ import javafx.scene.control.TextField;
 
 
 // maintain x and y coordinate
-//
 
-public class SudokuTextField extends TextField
-{
+
+public class SudokuTextField extends TextField {
     private final int x;
     private final int y;
 
@@ -31,11 +30,14 @@ public class SudokuTextField extends TextField
     //text - The text that is to replace the range. This must not be null.
     @Override
     public void replaceText(int start, int end, String text) {
-        if (text.matches("[0-9]")) {
-        }
-        //call the overridden method
+        if (!text.matches("[0-9]")) {
             super.replaceText(start, end, text);
         }
+        //call the overridden method
+
+        }
+
+
 
     // Replaces the selection with the given replacement String.
     // If there is no selection, then the replacement text is simply inserted
