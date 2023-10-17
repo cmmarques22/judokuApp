@@ -4,11 +4,11 @@ import sudoku.problemdomain.Coordinates;
 
 import static sudoku.problemdomain.SudokuGame.GRID_BOUNDARY;
 
-/*public class SudokuSolver {
+public class SudokuSolver {
 
     public static boolean puzzleIsSolvable(int[][] puzzle) {
         Coordinates[] emptyCells = typeWriterEnumerate(puzzle);
-          int
+
         int index = 0;
 
         int input = 1;
@@ -31,7 +31,9 @@ import static sudoku.problemdomain.SudokuGame.GRID_BOUNDARY;
                 } else {
                     index++;
 
-                    if (index == 39) { return true;
+                    if (index == 39) {
+                        return true;
+                    }
 
                         input = 10;
                 }
@@ -43,15 +45,15 @@ import static sudoku.problemdomain.SudokuGame.GRID_BOUNDARY;
     }
 
 
-    }
+
     private static Coordinates[] typeWriterEnumerate(int[][] puzzle) {
-        Coordinates emptyCells = new Coordinates[40];
+        Coordinates[] emptyCells = new Coordinates[40];
         int iterator = 0;
         for (int y = 0; y < GRID_BOUNDARY; y++) {
             for (int x = 0; x < GRID_BOUNDARY; x++) {
                 if(puzzle[x][y] == 0) {
                     emptyCells[iterator] = new Coordinates(x,y);
-                    if (iterator== 39) { return emptyCells};
+                    if (iterator== 39) { return emptyCells;}
                     iterator++;
                 }
 
@@ -59,5 +61,5 @@ import static sudoku.problemdomain.SudokuGame.GRID_BOUNDARY;
         }
         return emptyCells;
     }
-}*/
+}
         // minor fixes occurrences of integers2

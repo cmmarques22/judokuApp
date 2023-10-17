@@ -9,6 +9,9 @@ import java.util.Random;
 import static sudoku.problemdomain.SudokuGame.GRID_BOUNDARY;
 
 public class GameGenerator {
+
+    // generate 9x9 grid with 2dimendison arrays
+    //
     public static int[][] getNewGameGrid() {
         return unsolveGame(getSolvedGame());
     }
