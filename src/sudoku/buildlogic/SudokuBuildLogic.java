@@ -21,7 +21,7 @@ public class SudokuBuildLogic {
 
 
         try {
-            // throw if no game data is found in local storage
+            //  throw if no game data is found in local storage
             initialState = storage.getGameData();
         } catch (IOException e) {
             //throw an IOExceptionif we cannot update the game data.
