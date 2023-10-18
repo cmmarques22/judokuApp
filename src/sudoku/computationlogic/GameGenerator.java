@@ -11,7 +11,8 @@ import static sudoku.problemdomain.SudokuGame.GRID_BOUNDARY;
 public class GameGenerator {
 
     // generate 9x9 grid with 2dimendison arrays
-    //
+    //allocate that value 9 times, A Random coordinate on the grid is selected. If  empty, a Random value is allocated
+    // must not produce invalid rows, columns, or squares, else invalid game
     public static int[][] getNewGameGrid() {
         return unsolveGame(getSolvedGame());
     }
@@ -53,9 +54,15 @@ public class GameGenerator {
     private static int[][] getSolvedGame() {
         Random random = new Random(System.currentTimeMillis());
         int[][] newGrid = new int[GRID_BOUNDARY][GRID_BOUNDARY];
+        //Value represents potential values for each square
         for (int value = 1; value <= GRID_BOUNDARY; value++) {
+            //allocations refers to the number of times in which a square has been given a value.
+
             int allocations = 0;
+            //If too many allocation attempts are made which end in an invalid game, we grab the most recent
+            //allocations stored in the List below, and reset them all to 0 (empty).
             int interrupt = 0;
+            //Keep track of what has been allocated in the current frame of the loop
 
 
             List<Coordinates> allocTracker = new ArrayList<>();
