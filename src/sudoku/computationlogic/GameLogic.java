@@ -41,7 +41,7 @@ public class GameLogic {
         }
     }
 
-    private static boolean rowsAreInvalid(int[][] grid) {
+    public static boolean rowsAreInvalid(int[][] grid) {
         for (int yIndex = 0; yIndex < GRID_BOUNDARY; yIndex++) {
             List<Integer> row = new ArrayList<>();
             for (int xIndex = 0; xIndex < GRID_BOUNDARY; xIndex++) {
@@ -52,18 +52,20 @@ public class GameLogic {
         return false;
     }
 
-    private static boolean columnsAreInvalid(int[][] grid) {
+    public static boolean columnsAreInvalid(int[][] grid) {
         for (int xIndex = 0; xIndex < GRID_BOUNDARY; xIndex++) {
             List<Integer> row = new ArrayList<>();
             for (int yIndex = 0; yIndex < GRID_BOUNDARY; yIndex++) {
                 row.add(grid[xIndex][yIndex]);
             }
-            if(collectionHasRepeats(row)) {return true;}
+
+            if (collectionHasRepeats(row)) return true;
         }
-         return false;
+
+        return false;
     }
 
-    private static boolean squaresAreInvalid(int[][] grid) {
+    public static boolean squaresAreInvalid(int[][] grid) {
         if (rowOfSquaresIsInvalid(Rows.TOP, grid)) {
             return true;
         }
@@ -72,9 +74,9 @@ public class GameLogic {
         }
         if (rowOfSquaresIsInvalid(Rows.BOTTOM, grid)) {
             return true;
-        } else {
-            return false;
         }
+            return false;
+
     }
 
     private static boolean rowOfSquaresIsInvalid(Rows value, int[][] grid) {
@@ -99,7 +101,7 @@ public class GameLogic {
         }
     }
 
-    private static boolean squareIsInvalid(int xIndex, int yIndex, int[][] grid) {
+    public static boolean squareIsInvalid(int xIndex, int yIndex, int[][] grid) {
         int yIndexEnd = yIndex + 3;
         int xIndexEnd = xIndex + 3;
 
@@ -107,6 +109,7 @@ public class GameLogic {
         List<Integer> square = new ArrayList<>();
 
         while (yIndex < yIndexEnd) {
+
             while (xIndex < xIndexEnd) {
                 square.add(grid[xIndex][yIndex]);
 
@@ -116,21 +119,16 @@ public class GameLogic {
 
             yIndex++;
         }
-        if (collectionHasRepeats(square)) {
-            return true;
-        } else {
-            return false;
-        }
+        if (collectionHasRepeats(square)) return true;
+        return false;
+
     }
 
     public static boolean collectionHasRepeats(List<Integer> collection) {
         for (int index = 1; index <= GRID_BOUNDARY; index++) {
             if (Collections.frequency(collection, index) > 1) {
                 return true;
-            } else {
-                return false;
             }
-
         }
         return false;
     }
